@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 const article = ({ article }) => {
@@ -31,9 +31,7 @@ export const getStaticPaths = async () => {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts`)
   const articles = await res.json()
   const ids = articles.map((article) => article.id)
-  console.log(ids)
   const paths = ids.map((id) => ({ params: { id: id.toString() } }))
-  console.log(paths)
 
   return {
     paths,
